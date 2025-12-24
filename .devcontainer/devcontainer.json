@@ -1,0 +1,54 @@
+{
+  "name": "ReDyI",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "redyi-dev",
+  "workspaceFolder": "/ros2_ws",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.black-formatter",
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools",
+        "xaver.clang-format",
+        "Ranch-Hand-Robotics.rde-ros-2",
+        "redhat.vscode-xml",
+        "redhat.vscode-yaml",
+        "smilerobotics.urdf",
+        "streetsidesoftware.code-spell-checker",
+        "eamodio.gitlens",
+        "usernamehw.errorlens",
+        "gruntfuggly.todo-tree",
+        "ms-azuretools.vscode-docker"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/bin/python3",
+        "python.analysis.extraPaths": [
+          "/opt/ros/humble/lib/python3.10/site-packages",
+          "/ros2_ws/install"
+        ],
+        "C_Cpp.default.includePath": [
+          "/opt/ros/humble/include/**",
+          "/ros2_ws/install/*/include/**"
+        ],
+        "C_Cpp.formatting": "clangFormat",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4,
+        "editor.bracketPairColorization.enabled": true,
+        "editor.guides.bracketPairs": true,
+        "files.trimTrailingWhitespace": true,
+        "files.insertFinalNewline": true,
+        "files.associations": {
+          "*.xacro": "xml",
+          "*.urdf": "xml",
+          "*.sdf": "xml",
+          "*.launch.py": "python"
+        },
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "git.autofetch": true
+      }
+    }
+  },
+  "postCreateCommand": "grep -qxF 'source /opt/ros/humble/setup.bash' ~/.bashrc || echo 'source /opt/ros/humble/setup.bash' >> ~/.bashrc; grep -qxF 'test -f /ros2_ws/install/setup.bash && source /ros2_ws/install/setup.bash' ~/.bashrc || echo 'test -f /ros2_ws/install/setup.bash && source /ros2_ws/install/setup.bash' >> ~/.bashrc"
+}
